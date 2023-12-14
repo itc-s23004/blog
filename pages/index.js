@@ -1,6 +1,9 @@
-import Hero from 'components/hero'
+import HeroComponent from 'components/hero'
 
-const blog = () => {
-  return <Hero title='Blog' subtitle='Recent Posts' />
+const CustomHero = () => {
+  return (
+    <HeroComponent title='CUBE' subtitle='アウトプットしていくサイト' imageOn />
+  )
 }
-export default blog
+
+export default CustomHero
