@@ -3,7 +3,7 @@ import Nav from 'components/nav'
 const Header = () => {
   return (
     <header>
-      <Logo /> <Nav />
+      <Logo boxOn /> <Nav />
     </header>
   )
 }
