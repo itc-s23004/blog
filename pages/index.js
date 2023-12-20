@@ -1,8 +1,15 @@
 import HeroComponent from 'components/hero'
+import Container from 'components/container'
 
 const CustomHero = () => {
   return (
-    <HeroComponent title='CUBE' subtitle='アウトプットしていくサイト' imageOn />
+    <Container>
+      <HeroComponent
+        title='CUBE'
+        subtitle='アウトプットしていくサイト'
+        imageOn
+      />
+    </Container>
   )
 }
 
