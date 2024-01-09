@@ -1,21 +1,27 @@
-import { client } from 'lib/api'
+import { getPostBySlug } from 'lib/api'
+import Container from 'components/container'
 
-const Schedule = () => {
-  return <h1>記事のタイトル</h1>
+const Schedule = ({ title, publish, content, eyecatch, categories }) => {
+  return (
+    <Container>
+      <h1>{title}</h1>
+    </Container>
+  )
 }
+
 export default Schedule
 
 export async function getStaticProps () {
-  const resPromise = client.get({
-    endpoint: 'blogs'
-  })
-  try {
-    const res = await resPromise
-    console.log(res)
-  } catch (err) {
-    console.log(err)
-  }
+  const slug = 'schedule'
+  const post = await getPostBySlug(slug)
+
   return {
-    props: {}
+    props: {
+      title: post.title,
+      publish: post.publishDate,
+      content: post.content, // 修正: constent から content に修正
+      eyecatch: post.eyecatch,
+      categories: post.categories
+    }
   }
 }
