@@ -1,3 +1,4 @@
+import Meta from 'components/meta'
 import Hero from 'components/hero'
 import Container from 'components/container'
 import PostBody from 'components/post-body'
@@ -13,20 +14,28 @@ import eyecatch from 'next-react-website/blog-app-router/images/about.jpg'
 const About = () => {
   return (
     <Container>
+      <Meta
+        pageTitle='アバウト'
+        pageDesc='About development activities'
+        pageImg={eyecatch.src}
+        pageImgW={eyecatch.width}
+        pageImgH={eyecatch.height}
+      />
+
+      <Hero title='About' subtitle='About development activities' />
       <figure>
         <Image
           src={eyecatch}
           alt=''
           layout='responsive'
-          sizes='(min-width: 1125px) 1125px, 100vw'
+          sizes='(min-width: 1152px) 1152px, 100vw'
           priority
-          placeholder='blur'
+          placehoder='blur'
         />
       </figure>
       <TwoColumn>
         <TwoColumnMain>
           <PostBody>
-            <Hero title='About' subtitle='About development activities' />
             <p>
               Cubeが得意とする分野はモノづくりです。3次元から2次元の造形、プログラミングやデザインなど、さまざまな技術を組み合わせることによって社会や環境と結びつけるクリエイティブを提案し続けています。
             </p>
@@ -53,6 +62,7 @@ const About = () => {
             </p>
           </PostBody>
         </TwoColumnMain>
+
         <TwoColumnSidebar>
           <Contact />
         </TwoColumnSidebar>
