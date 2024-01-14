@@ -4,8 +4,6 @@ export const TwoColumn = ({ children }) => {
   return <div className={styles.flexContainer}>{children}</div>
 }
 
-export default TwoColumn
-
 export const TwoColumnMain = ({ children }) => {
   return <div className={styles.main}>{children}</div>
 }

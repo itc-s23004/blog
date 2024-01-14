@@ -1,8 +1,6 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-// components/meta.js
-
 import { siteMeta } from 'lib/constants'
 
 const {
@@ -20,7 +18,6 @@ import siteImg from 'images/ogp.jpg'
 
 const Meta = ({ pageTitle, pageDesc, pageImg, pageImgW, pageImgH }) => {
   const title = pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle
-  // ページの説明
   const desc = pageDesc ?? siteDesc
 
   const router = useRouter()
