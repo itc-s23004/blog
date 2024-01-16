@@ -3,7 +3,7 @@ import Layout from 'components/layout'
 
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
-config.sutoAddCss = false
+config.autoAddCss = false
 
 const MyApp = ({ Component, pageProps }) => {
   return (
