@@ -1,9 +1,11 @@
 import { getPostBySlug, getAllSlugs } from 'lib/api'
 import { extractText } from 'lib/extract-text'
+import { PrevNextPost } from 'lib/prev-next-post'
 import Meta from 'components/meta'
 import Container from 'components/container'
 import PostHeader from 'components/post-header'
 import PostBody from 'components/post-body'
+import Pagination from 'components/pagination'
 import {
   TwoColumn,
   TwoColumnMain,
@@ -21,7 +23,9 @@ const Post = ({
   content,
   eyecatch,
   categories,
-  description
+  description,
+  prevPost,
+  nextPost
 }) => {
   return (
     <Container>
@@ -59,6 +63,18 @@ const Post = ({
             <PostCategories categories={categories} />
           </TwoColumnSidebar>
         </TwoColumn>
+        <div>
+          {prevPost.title} {prevPost.slug}
+        </div>
+        <div>
+          {nextPost.title} {nextPost.slug}
+        </div>
+        <Pagination
+          prevText={prevPost.title}
+          prevUrl={`/blog/${prevPost.slug}`}
+          nextText={nextPost.title}
+          nextUrl={`/blog/${nextPost.slug}`}
+        />
       </article>
     </Container>
   )
@@ -82,6 +98,9 @@ const getStaticProps = async context => {
   const { base64 } = await getPlaiceholder(eyecatch.url)
   eyecatch.blurDataURL = base64
 
+  const allSlugs = await getAllSlugs()
+  const [prevPost, nextPost] = PrevNextPost(allSlugs, slug)
+
   return {
     props: {
       title: post.title,
@@ -89,7 +108,9 @@ const getStaticProps = async context => {
       content: post.content,
       eyecatch,
       categories: post.categories,
-      description
+      description,
+      prevPost,
+      nextPost
     }
   }
 }
