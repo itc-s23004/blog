@@ -64,12 +64,6 @@ const Post = ({
             <PostCategories categories={categories} />
           </TwoColumnSidebar>
         </TwoColumn>
-        <div>
-          {prevPost.title} {prevPost.slug}
-        </div>
-        <div>
-          {nextPost.title} {nextPost.slug}
-        </div>
         <Pagination
           prevText={prevPost.title}
           prevUrl={`/blog/${prevPost.slug}`}

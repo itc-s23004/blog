@@ -13,7 +13,7 @@ const Social = ({ iconSize = 'insitial' }) => {
       <li>
         <a href='https://twitter.com/'>
           <FontAwesomeIcon icon={faTwitter} />
-          <span className='sr-onry'>Twitter</span>
+          <span className='sr-only'>Twitter</span>
         </a>
       </li>
       <li>
